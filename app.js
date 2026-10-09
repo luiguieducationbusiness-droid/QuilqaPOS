@@ -42,6 +42,7 @@ const ic = (n, s = 20) => `<svg class="ic" width="${s}" height="${s}" viewBox="0
 const METODOS = { efectivo: 'Efectivo', yape: 'Yape', plin: 'Plin', tarjeta: 'Tarjeta', transferencia: 'Transferencia', credito: 'Crédito (fiado)' };
 const COMPROBANTES = { ticket: 'Ticket', boleta: 'Boleta', factura: 'Factura' };
 const UNIDADES = ['unidad', 'kg', 'gramo', 'litro', 'caja', 'paquete', 'docena', 'bolsa', 'botella'];
+const MARCA_CREADORA = '<footer class="creator-mark">Creado por <strong>Lazo &amp; Nexora Studio</strong></footer>';
 
 /* ---------- Estado ---------- */
 const S = {
@@ -255,7 +256,7 @@ function pantallaConexion(err = '') {
     <details><summary class="muted sm" style="cursor:pointer">Prefiero pegar la URL y el token por separado</summary>
       <div class="stack" style="margin-top:10px"><label class="f"><span>URL de la aplicación web</span><input id="cu" type="text" placeholder="https://script.google.com/macros/s/…/exec"></label>
       <label class="f"><span>Token</span><input id="ct" type="text"></label></div></details>
-    <button class="btn aji lg block" id="conectar">Conectar hoja</button></div></div>`;
+    <button class="btn aji lg block" id="conectar">Conectar hoja</button>${MARCA_CREADORA}</div></div>`;
   $('#conectar').onclick = async () => {
     let url = $('#cu').value.trim(), token = $('#ct').value.trim();
     const cod = $('#cc').value.trim();
@@ -277,7 +278,7 @@ function pantallaLogin() {
     <div class="dots" id="dots"></div>
     <div class="pinpad">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button data-k="${n}">${n}</button>`).join('')}<button data-k="del" aria-label="Borrar">⌫</button><button data-k="0">0</button><button data-k="ok" style="background:var(--aji);color:#241a00">Entrar</button></div>`
       : `<div class="empty">No hay usuarios guardados. Conéctate a internet para sincronizar.</div><button class="btn block" id="reint">Reintentar</button>`}
-    <button class="btn-ghost block" id="desco">Cambiar de hoja de Google</button></div></div>`;
+    <button class="btn-ghost block" id="desco">Cambiar de hoja de Google</button>${MARCA_CREADORA}</div></div>`;
   const dots = () => { const d = $('#dots'); if (d) d.innerHTML = Array.from({ length: Math.max(4, pin.length) }, (_, i) => `<i class="${i < pin.length ? 'f' : ''}"></i>`).join(''); };
   dots();
   const entrar = async () => {
@@ -323,6 +324,7 @@ function pintarEstado() {
 }
 function renderVista() {
   ({ venta: vistaVenta, inventario: vistaInventario, clientes: vistaClientes, reportes: vistaReportes, ajustes: vistaAjustes })[S.view]();
+  $('#view').insertAdjacentHTML('beforeend', MARCA_CREADORA);
 }
 
 /* ---------- CAJA DE VENTA ---------- */

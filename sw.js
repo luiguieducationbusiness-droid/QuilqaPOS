@@ -1,5 +1,5 @@
 /* Service worker de QillqaPOS. Sube el número de VERSION cada vez que actualices archivos. */
-const VERSION = 'qillqapos-v1';
+const VERSION = 'qillqapos-v2';
 const CORE = ['./', 'index.html', 'styles.css', 'app.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', e => {

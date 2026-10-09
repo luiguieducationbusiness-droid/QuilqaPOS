@@ -153,6 +153,8 @@ table.t th{color:var(--muted);font-size:12.5px}
 .center{min-height:100%;display:grid;place-items:center;padding:20px}
 .auth{width:100%;max-width:400px}
 .auth .brand{color:var(--text);justify-content:center;font-size:26px}
+.creator-mark{margin:18px 0 4px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.02em}
+.creator-mark strong{color:var(--text);font-weight:700}
 .pinpad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .pinpad button{min-height:56px;font-size:22px;font-weight:700;border:1px solid var(--line);background:var(--surface);border-radius:12px;cursor:pointer;color:var(--text)}
 .dots{display:flex;justify-content:center;gap:12px;height:20px}
